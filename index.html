@@ -1,0 +1,209 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Animation</title>
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<style>
+	/*#animated{
+		height: 100vh;
+		width: 100vw;
+		}*/
+		.preloader{
+			display: none;
+		}
+		.swiper-slide-active .preloader{
+			position: fixed;
+			top:0;
+			left:0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			z-index: 9999;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.swiper-button-disabled{
+			display: none;
+		}
+		.restart-btn{
+			display: none;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background: rgba(255,255,255,0.8);
+			top: 0;
+			left: 0;
+			z-index: 9;
+			text-align: center;
+		}
+		/*.d-block{
+			display: block;
+		}*/
+		.restart-btn a{
+			display: inline-block;
+			margin-top: 10%;
+			background: #007aff;
+			padding: 15px 30px;
+			color: #fff;
+			text-decoration: none;
+			font-size: 18px;
+			border-radius: 5px;
+		}
+		.lds-dual-ring {
+			display: inline-block;
+			width: 64px;
+			height: 64px;
+		}
+		.lds-dual-ring:after {
+			content: " ";
+			display: block;
+			width: 46px;
+			height: 46px;
+			margin: 1px;
+			border-radius: 50%;
+			border: 5px solid #000;
+			border-color: #000 transparent #000 transparent;
+			animation: lds-dual-ring 1.2s linear infinite;
+		}
+		@keyframes lds-dual-ring {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<!-- Swiper -->
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<div id="preloader1" class="preloader">
+					<div class="lds-dual-ring"></div>
+				</div>
+				<div id="animated_step1"></div>
+			</div>
+			<div class="swiper-slide">
+				<div id="preloader2" class="preloader">
+					<div class="lds-dual-ring"></div>
+				</div>
+				<div id="animated_step2"></div>
+			</div>
+			<div class="swiper-slide">
+				<div id="preloader3" class="preloader">
+					<div class="lds-dual-ring"></div>
+				</div>
+				<div id="animated_step3"></div>
+			</div>
+			<div class="swiper-slide">
+				<div id="preloader4" class="preloader">
+					<div class="lds-dual-ring"></div>
+				</div>
+				<div id="animated_step4"></div>
+			</div>
+			<div class="swiper-slide">
+				<div id="preloader5" class="preloader">
+					<div class="lds-dual-ring"></div>
+				</div>
+				<div id="animated_step5"></div>
+			</div>
+			<div class="swiper-slide">
+				<div id="preloader6" class="preloader">
+					<div class="lds-dual-ring"></div>
+				</div>
+				<div id="animated_step6"></div>
+			</div>
+
+		</div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-next">
+		</div>
+		<div class="swiper-button-prev">
+
+		</div>
+	</div>
+		<div class="restart-btn">
+		<a href="" onClick="window.location.reload()">Play Again</a>
+		</div>
+		<script src="js/lottie.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script>
+		//swiper
+		var swiper = new Swiper('.swiper-container', {
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+		//swiper
+
+		function getAnimData(slideNumber){
+			var svgContainer = document.getElementById("animated_step"+slideNumber);
+			var animdata={
+				wrapper: svgContainer,
+				animType: "svg",
+				autoplay:false,
+				loop:false,
+				path: "step"+slideNumber+"/data.json"
+			}
+			return animdata;
+		}
+
+		var animItem1 = bodymovin.loadAnimation(getAnimData(1));
+		hidePreloader(animItem1,1);
+		autoSlideChange(animItem1,1);
+
+		function hidePreloader(animItem,slideNumber){
+			animItem.addEventListener('loaded_images',function(){
+				var preloader=document.getElementById('preloader'+slideNumber);
+				preloader.style.display="none";
+				setTimeout(function() {
+					animItem.play();
+				}, 500);
+			});
+		}
+
+
+		function autoSlideChange(animItem,slideNumber){
+			animItem.addEventListener('complete',function(){
+				var restartElement = document.getElementsByClassName('restart-btn');
+				if (!swiper.isEnd) {
+					lottie.stop();
+					swiper.slideNext();
+					lottie.play();
+					restartElement[0].style.display="none";
+				}
+				else{
+					// alert('loop Completed');
+ 					restartElement[0].style.display="block";
+				}
+			});
+		}
+
+		swiper.on('slideChange', function() {
+			lottie.destroy();
+			var currentSlide=swiper.activeIndex;
+			currentSlide++;
+			lottie.stop();
+			changeSlide(currentSlide);
+			lottie.play();
+		});
+
+		function changeSlide(currentSlide){
+			var animItem2 = bodymovin.loadAnimation(getAnimData(currentSlide));
+			hidePreloader(animItem2,currentSlide);
+			autoSlideChange(animItem2,currentSlide);
+		}
+
+	</script>
+</body>
+</html>
