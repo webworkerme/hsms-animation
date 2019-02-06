@@ -11,6 +11,9 @@
 		.preloader{
 			display: none;
 		}
+		.swiper-wrapper {
+			padding-top: 58px;
+		}
 		.swiper-slide-active .preloader{
 			position: fixed;
 			top:0;
@@ -70,6 +73,25 @@
 			border-color: #000 transparent #000 transparent;
 			animation: lds-dual-ring 1.2s linear infinite;
 		}
+		.text-center {
+			text-align: center;
+		}
+		.swiper-slide h3 {
+			position: absolute;
+		    top: -60px;
+			width: 100%;
+
+		}
+		.button_group {
+		    max-width: 250px;
+		    margin: 0 auto;
+			position: relative;
+		}
+		.swiper-button-next, .swiper-button-prev {
+		    top: 36px;
+		    width: 27px;
+		    height: 27px;
+		}
 		@keyframes lds-dual-ring {
 			0% {
 				transform: rotate(0deg);
@@ -85,51 +107,60 @@
 
 	<!-- Swiper -->
 	<div class="swiper-container">
+		<div class="button_group">
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<div id="preloader1" class="preloader">
 					<div class="lds-dual-ring"></div>
+
 				</div>
+				<h3 class="text-center">Step 1</h3>
 				<div id="animated_step1"></div>
+
 			</div>
 			<div class="swiper-slide">
 				<div id="preloader2" class="preloader">
 					<div class="lds-dual-ring"></div>
 				</div>
+				<h3 class="text-center">Step 2</h3>
 				<div id="animated_step2"></div>
 			</div>
 			<div class="swiper-slide">
 				<div id="preloader3" class="preloader">
 					<div class="lds-dual-ring"></div>
 				</div>
+				<h3 class="text-center">Step 3</h3>
 				<div id="animated_step3"></div>
 			</div>
 			<div class="swiper-slide">
 				<div id="preloader4" class="preloader">
 					<div class="lds-dual-ring"></div>
 				</div>
+				<h3 class="text-center">Step 4</h3>
 				<div id="animated_step4"></div>
 			</div>
 			<div class="swiper-slide">
 				<div id="preloader5" class="preloader">
 					<div class="lds-dual-ring"></div>
 				</div>
+				<h3 class="text-center">Step 5</h3>
 				<div id="animated_step5"></div>
 			</div>
 			<div class="swiper-slide">
 				<div id="preloader6" class="preloader">
 					<div class="lds-dual-ring"></div>
 				</div>
+				<h3 class="text-center">Step 6</h3>
 				<div id="animated_step6"></div>
 			</div>
 
 		</div>
 		<!-- Add Arrows -->
-		<div class="swiper-button-next">
-		</div>
-		<div class="swiper-button-prev">
 
-		</div>
 	</div>
 		<div class="restart-btn">
 		<a href="" onClick="window.location.reload()">Play Again</a>
@@ -139,6 +170,7 @@
 		<script>
 		//swiper
 		var swiper = new Swiper('.swiper-container', {
+			autoplay:false,
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
@@ -160,7 +192,7 @@
 
 		var animItem1 = bodymovin.loadAnimation(getAnimData(1));
 		hidePreloader(animItem1,1);
-		autoSlideChange(animItem1,1);
+		//autoSlideChange(animItem1,1);
 
 		function hidePreloader(animItem,slideNumber){
 			animItem.addEventListener('loaded_images',function(){
@@ -201,7 +233,7 @@
 		function changeSlide(currentSlide){
 			var animItem2 = bodymovin.loadAnimation(getAnimData(currentSlide));
 			hidePreloader(animItem2,currentSlide);
-			autoSlideChange(animItem2,currentSlide);
+			//autoSlideChange(animItem2,currentSlide);
 		}
 
 	</script>
