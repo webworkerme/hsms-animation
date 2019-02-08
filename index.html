@@ -3,105 +3,7 @@
 	<meta charset="UTF-8">
 	<title>Animation</title>
 	<link rel="stylesheet" href="css/swiper.min.css">
-	<style>
-	/*#animated{
-		height: 100vh;
-		width: 100vw;
-		}*/
-		.preloader{
-			display: none;
-		}
-		.swiper-wrapper {
-			padding-top: 58px;
-		}
-		.swiper-slide-active .preloader{
-			position: fixed;
-			top:0;
-			left:0;
-			width: 100%;
-			height: 100%;
-			background-color: #fff;
-			z-index: 9999;
-			display: -webkit-flex;
-			display: -moz-flex;
-			display: -ms-flex;
-			display: -o-flex;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.swiper-button-disabled{
-			display: none;
-		}
-		.restart-btn{
-			display: none;
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			background: rgba(255,255,255,0.8);
-			top: 0;
-			left: 0;
-			z-index: 9;
-			text-align: center;
-		}
-		/*.d-block{
-			display: block;
-		}*/
-		.restart-btn a{
-			display: inline-block;
-			margin-top: 10%;
-			background: #007aff;
-			padding: 15px 30px;
-			color: #fff;
-			text-decoration: none;
-			font-size: 18px;
-			border-radius: 5px;
-		}
-		.lds-dual-ring {
-			display: inline-block;
-			width: 64px;
-			height: 64px;
-		}
-		.lds-dual-ring:after {
-			content: " ";
-			display: block;
-			width: 46px;
-			height: 46px;
-			margin: 1px;
-			border-radius: 50%;
-			border: 5px solid #000;
-			border-color: #000 transparent #000 transparent;
-			animation: lds-dual-ring 1.2s linear infinite;
-		}
-		.text-center {
-			text-align: center;
-		}
-		.swiper-slide h3 {
-			position: absolute;
-		    top: -60px;
-			width: 100%;
-
-		}
-		.button_group {
-		    max-width: 250px;
-		    margin: 0 auto;
-			position: relative;
-		}
-		.swiper-button-next, .swiper-button-prev {
-		    top: 36px;
-		    width: 27px;
-		    height: 27px;
-		}
-		@keyframes lds-dual-ring {
-			0% {
-				transform: rotate(0deg);
-			}
-			100% {
-				transform: rotate(360deg);
-			}
-		}
-
-	</style>
+	<style>/*#animated{ height: 100vh; width: 100vw; }*/ .preloader{ display: none; } .swiper-slide { padding-top: 60px; } .swiper-slide-active .preloader{ position: fixed; top:0; left:0; width: 100%; height: 100%; background-color: #fff; z-index: 9999; display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex; align-items: center; justify-content: center; } .swiper-button-disabled{ display: none; } .restart-btn{ display: none; position: absolute; height: 100%; width: 100%; background: rgba(255,255,255,0.8); top: 0; left: 0; z-index: 9; text-align: center; } /*.d-block{ display: block; }*/ .restart-btn a{ display: inline-block; margin-top: 10%; background: #007aff; padding: 15px 30px; color: #fff; text-decoration: none; font-size: 18px; border-radius: 5px; } .lds-dual-ring { display: inline-block; width: 64px; height: 64px; } .lds-dual-ring:after { content: " "; display: block; width: 46px; height: 46px; margin: 1px; border-radius: 50%; border: 5px solid #000; border-color: #000 transparent #000 transparent; animation: lds-dual-ring 1.2s linear infinite; } .text-center { text-align: center; } .swiper-slide h3 { position: absolute; top: 0px; width: 100%; } .button_group { max-width: 250px; margin: 0 auto; position: relative; } .swiper-button-next, .swiper-button-prev { top: 33px; width: 27px; height: 27px; background-color: #ddd; border-radius: 50%; background-size: 25px 24px; padding: 5px; } @keyframes lds-dual-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @-webkit-keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.2, 1.2, 1.2); transform: scale3d(1.2, 1.2, 1.2); } to { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } } @keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.2, 1.2, 1.2); transform: scale3d(1.2, 1.2, 1.2); } to { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } } .swiper-button-next { -webkit-animation-name: pulse; animation-name: pulse; animation-iteration-count: infinite; animation-play-state: running; animation-duration: 1.5s; -webkit-animation-iteration-count: infinite; -webkit-animation-play-state: running; -webkit-animation-duration: 1.5s; }</style>
 </head>
 <body>
 
@@ -162,12 +64,12 @@
 		<!-- Add Arrows -->
 
 	</div>
-		<div class="restart-btn">
+	<div class="restart-btn">
 		<a href="" onClick="window.location.reload()">Play Again</a>
-		</div>
-		<script src="js/lottie.min.js"></script>
-		<script src="js/swiper.min.js"></script>
-		<script>
+	</div>
+	<script src="js/lottie.min.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script>
 		//swiper
 		var swiper = new Swiper('.swiper-container', {
 			autoplay:false,
@@ -216,7 +118,7 @@
 				}
 				else{
 					// alert('loop Completed');
- 					restartElement[0].style.display="block";
+					restartElement[0].style.display="block";
 				}
 			});
 		}
