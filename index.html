@@ -2,142 +2,310 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Animation</title>
-	<link rel="stylesheet" href="css/swiper.min.css">
-	<style>/*#animated{ height: 100vh; width: 100vw; }*/ .preloader{ display: none; } .swiper-slide { padding-top: 60px; } .swiper-slide-active .preloader{ position: fixed; top:0; left:0; width: 100%; height: 100%; background-color: #fff; z-index: 9999; display: -webkit-flex; display: -moz-flex; display: -ms-flex; display: -o-flex; display: flex; align-items: center; justify-content: center; } .swiper-button-disabled{ display: none; } .restart-btn{ display: none; position: absolute; height: 100%; width: 100%; background: rgba(255,255,255,0.8); top: 0; left: 0; z-index: 9; text-align: center; } /*.d-block{ display: block; }*/ .restart-btn a{ display: inline-block; margin-top: 10%; background: #007aff; padding: 15px 30px; color: #fff; text-decoration: none; font-size: 18px; border-radius: 5px; } .lds-dual-ring { display: inline-block; width: 64px; height: 64px; } .lds-dual-ring:after { content: " "; display: block; width: 46px; height: 46px; margin: 1px; border-radius: 50%; border: 5px solid #000; border-color: #000 transparent #000 transparent; animation: lds-dual-ring 1.2s linear infinite; } .text-center { text-align: center; } .swiper-slide h3 { position: absolute; top: 0px; width: 100%; } .button_group { max-width: 250px; margin: 0 auto; position: relative; } .swiper-button-next, .swiper-button-prev { top: 33px; width: 27px; height: 27px; background-color: #ddd; border-radius: 50%; background-size: 25px 24px; padding: 5px; } @keyframes lds-dual-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } @-webkit-keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.2, 1.2, 1.2); transform: scale3d(1.2, 1.2, 1.2); } to { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } } @keyframes pulse { from { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } 50% { -webkit-transform: scale3d(1.2, 1.2, 1.2); transform: scale3d(1.2, 1.2, 1.2); } to { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); } } .swiper-button-next { -webkit-animation-name: pulse; animation-name: pulse; animation-iteration-count: infinite; animation-play-state: running; animation-duration: 1.5s; -webkit-animation-iteration-count: infinite; -webkit-animation-play-state: running; -webkit-animation-duration: 1.5s; }</style>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+	<style>
+	@-webkit-keyframes pulse {
+		from {
+			-webkit-transform: scale3d(1, 1, 1);
+			transform: scale3d(1, 1, 1);
+		}
+		50% {
+			-webkit-transform: scale3d(1.05, 1.05, 1.05);
+			transform: scale3d(1.05, 1.05, 1.05);
+		}
+		to {
+			-webkit-transform: scale3d(1, 1, 1);
+			transform: scale3d(1, 1, 1);
+		}
+	}
+	@keyframes pulse {
+		from {
+			-webkit-transform: scale3d(1, 1, 1);
+			transform: scale3d(1, 1, 1);
+		}
+		50% {
+			-webkit-transform: scale3d(1.05, 1.05, 1.05);
+			transform: scale3d(1.05, 1.05, 1.05);
+		}
+		to {
+			-webkit-transform: scale3d(1, 1, 1);
+			transform: scale3d(1, 1, 1);
+		}
+	}
+	.choose-animation-blk {
+		text-align: center;
+		font-family: 'Open Sans', sans-serif;
+		overflow: hidden;
+	}
+	.animation-title {
+		font-size: 36px;
+		background-color: #1E9EFF;
+		margin: 0;
+		padding: 15px;
+		color: #fff;
+		letter-spacing: 1px;
+	}
+	.choose-animation-blk img{
+		max-width: 100%;
+		-webkit-transition: 0.3s;
+		-o-transition: 0.3s;
+		transition: 0.3s;
+	}
+	.animation-img-blk {
+		position: relative;
+	}
+	.step-1, .step-2, .step-3, .step-4, .step-5, .step-6{
+		display: inline-block;
+		background-color: #fff;
+		width: 4%;
+		min-width: 4%;
+		padding-top: 4%;
+		position: absolute;
+		border-radius: 500px;
+		-webkit-transition: 0.3s;
+		-o-transition: 0.3s;
+		transition: 0.3s;
+		cursor: pointer;
+	}
+	.step-1:before, .step-2:before, .step-3:before, .step-4:before, .step-5:before, .step-6:before{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translateX(-50%) translateY(-50%);
+		-ms-transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%);
+		color: #f00;
+		font-size: 2vw;
+		font-weight: 600;
+	}
+	.step-1:hover, .step-2:hover, .step-3:hover, .step-4:hover, .step-5:hover, .step-6:hover{
+		-webkit-animation-name: pulse;
+		animation-name: pulse;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+		-webkit-animation-duration: 0.8s;
+		animation-duration: 0.8s;
+		-webkit-animation-timing-function: ease-in-out;
+		animation-timing-function: ease-in-out;
+	}
+	.step-1{
+		top: 42%;
+		right: 27%;
+	}
+	.step-1:before{
+		content: "1";
+	}
+	.step-2{
+		top: 58%;
+		left: 29%;
+	}
+	.step-2:before{
+		content: "2";
+	}
+	.step-3{
+		top: 58%;
+		left: 14%;
+	}
+	.step-3:before{
+		content: "3";
+	}
+	.step-4{
+		top: 40%;
+		left: 28%;
+	}
+	.step-4:before{
+		content: "4";
+	}
+	.step-5{
+		top: 32%;
+		left: 41%;
+	}
+	.step-5:before{
+		content: "5";
+	}
+	.step-6{
+		top: 19%;
+		left: 58%;
+	}
+	.step-6:before{
+		content: "6";
+	}
+	#svgContainer{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		-webkit-transition: 0.3s;
+		-o-transition: 0.3s;
+		transition: 0.3s;
+	}
+	#svgContainer svg{
+		position: relative;
+		z-index: 999;
+		-webkit-transition: 0.3s;
+		-o-transition: 0.3s;
+		transition: 0.3s;
+	}
+	.animation-footer{
+		padding: 15px;
+		background-color: #1E9EFF;
+	}
+	.more-info-btn {
+		display: inline-block;
+		text-decoration: none;
+		background-color: #F6FF00;
+		padding: 10px 30px;
+		font-weight: 600;
+		letter-spacing: 1px;
+		font-size: 36px;
+		color: #000;
+		margin: 10px 0px;
+	}
+	.slide1 svg g g:last-child{
+		display: block !important;
+		opacity: 1;
+	}
+	.slide2 svg g g:nth-child(9) image{
+		height: auto;
+	}
+	.slide4 svg g g:nth-child(6){
+		display: block !important;
+		opacity: 1;
+		-webkit-transform: matrix(1, 0, 0, 1, 116, 58.5);
+		-ms-transform: matrix(1, 0, 0, 1, 116, 58.5);
+		transform: matrix(1, 0, 0, 1, 116, 58.5);
+	}
+</style>
 </head>
 <body>
-
-	<!-- Swiper -->
-	<div class="swiper-container">
-		<div class="button_group">
-			<div class="swiper-button-next"></div>
-			<div class="swiper-button-prev"></div>
+	<div class="choose-animation-blk">
+		<!-- Animation block title start -->
+		<h2 class="animation-title">
+			Choose A Step Below
+		</h2>
+		<!-- Animation block title end -->
+		<div class="animation-img-blk">
+			<div id="svgContainer"></div>
+			<img src="images/animation_image.jpg" usemap="#image-map">
+			<span class="step-1" onclick="step1()" title="Step 1"></span>
+			<span class="step-2" onclick="step2()" title="Step 2"></span>
+			<span class="step-3" onclick="step3()" title="Step 3"></span>
+			<span class="step-4" onclick="step4()" title="Step 4"></span>
+			<span class="step-5" onclick="step5()" title="Step 5"></span>
+			<span class="step-6" onclick="step6()" title="Step 6"></span>
 		</div>
-
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<div id="preloader1" class="preloader">
-					<div class="lds-dual-ring"></div>
-
-				</div>
-				<h3 class="text-center">Step 1</h3>
-				<div id="animated_step1"></div>
-
-			</div>
-			<div class="swiper-slide">
-				<div id="preloader2" class="preloader">
-					<div class="lds-dual-ring"></div>
-				</div>
-				<h3 class="text-center">Step 2</h3>
-				<div id="animated_step2"></div>
-			</div>
-			<div class="swiper-slide">
-				<div id="preloader3" class="preloader">
-					<div class="lds-dual-ring"></div>
-				</div>
-				<h3 class="text-center">Step 3</h3>
-				<div id="animated_step3"></div>
-			</div>
-			<div class="swiper-slide">
-				<div id="preloader4" class="preloader">
-					<div class="lds-dual-ring"></div>
-				</div>
-				<h3 class="text-center">Step 4</h3>
-				<div id="animated_step4"></div>
-			</div>
-			<div class="swiper-slide">
-				<div id="preloader5" class="preloader">
-					<div class="lds-dual-ring"></div>
-				</div>
-				<h3 class="text-center">Step 5</h3>
-				<div id="animated_step5"></div>
-			</div>
-			<div class="swiper-slide">
-				<div id="preloader6" class="preloader">
-					<div class="lds-dual-ring"></div>
-				</div>
-				<h3 class="text-center">Step 6</h3>
-				<div id="animated_step6"></div>
-			</div>
-
+		<div class="animation-footer">
+			<a href="https://www.waste2water.com/closed-loop-wash-racks/" class="more-info-btn">More Info</a>
 		</div>
-		<!-- Add Arrows -->
-
 	</div>
-	<div class="restart-btn">
-		<a href="" onClick="window.location.reload()">Play Again</a>
-	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="js/lottie.min.js"></script>
-	<script src="js/swiper.min.js"></script>
 	<script>
-		//swiper
-		var swiper = new Swiper('.swiper-container', {
-			autoplay:false,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
+		var svgContainer = document.getElementById('svgContainer');
+	// step 1 animation script start
+	function step1() {
+		$("#svgContainer").removeClass();
+		$("#svgContainer").addClass('slide1');
+		var animItem = bodymovin.loadAnimation({
+			wrapper: svgContainer,
+			animType: 'svg',
+			loop: false,
+			path: 'step1/data.json',
 		});
-		//swiper
-
-		function getAnimData(slideNumber){
-			var svgContainer = document.getElementById("animated_step"+slideNumber);
-			var animdata={
-				wrapper: svgContainer,
-				animType: "svg",
-				autoplay:false,
-				loop:false,
-				path: "step"+slideNumber+"/data.json"
-			}
-			return animdata;
-		}
-
-		var animItem1 = bodymovin.loadAnimation(getAnimData(1));
-		hidePreloader(animItem1,1);
-		//autoSlideChange(animItem1,1);
-
-		function hidePreloader(animItem,slideNumber){
-			animItem.addEventListener('loaded_images',function(){
-				var preloader=document.getElementById('preloader'+slideNumber);
-				preloader.style.display="none";
-				setTimeout(function() {
-					animItem.play();
-				}, 500);
-			});
-		}
-
-
-		function autoSlideChange(animItem,slideNumber){
-			animItem.addEventListener('complete',function(){
-				var restartElement = document.getElementsByClassName('restart-btn');
-				if (!swiper.isEnd) {
-					lottie.stop();
-					swiper.slideNext();
-					lottie.play();
-					restartElement[0].style.display="none";
-				}
-				else{
-					// alert('loop Completed');
-					restartElement[0].style.display="block";
-				}
-			});
-		}
-
-		swiper.on('slideChange', function() {
-			lottie.destroy();
-			var currentSlide=swiper.activeIndex;
-			currentSlide++;
-			lottie.stop();
-			changeSlide(currentSlide);
-			lottie.play();
+		animItem.addEventListener('complete', function() {
+			setTimeout(function(){
+				animItem.destroy();
+			}, 4000);
 		});
-
-		function changeSlide(currentSlide){
-			var animItem2 = bodymovin.loadAnimation(getAnimData(currentSlide));
-			hidePreloader(animItem2,currentSlide);
-			//autoSlideChange(animItem2,currentSlide);
-		}
-
-	</script>
+	};
+	// step 1 animation script end
+	// step 2 animation script start
+	function step2() {
+		$("#svgContainer").removeClass();
+		$("#svgContainer").addClass('slide2');
+		var animItem = bodymovin.loadAnimation({
+			wrapper: svgContainer,
+			animType: 'svg',
+			loop: false,
+			path: 'step2/data.json',
+		});
+		animItem.addEventListener('complete', function() {
+			setTimeout(function(){
+				animItem.destroy();
+			}, 4000);
+		});
+	};
+	// step 2 animation script end
+	// step 3 animation script start
+	function step3() {
+		$("#svgContainer").removeClass();
+		$("#svgContainer").addClass('slide3');
+		var animItem = bodymovin.loadAnimation({
+			wrapper: svgContainer,
+			animType: 'svg',
+			loop: false,
+			path: 'step3/data.json',
+		});
+		animItem.addEventListener('complete', function() {
+			setTimeout(function(){
+				animItem.destroy();
+			}, 1000);
+		});
+	};
+	// step 3 animation script end
+	// step 4 animation script start
+	function step4() {
+		$("#svgContainer").removeClass();
+		$("#svgContainer").addClass('slide4');
+		var animItem = bodymovin.loadAnimation({
+			wrapper: svgContainer,
+			animType: 'svg',
+			loop: false,
+			path: 'step4/data.json',
+		});
+		animItem.addEventListener('complete', function() {
+			setTimeout(function(){
+				animItem.destroy();
+			}, 4000);
+		})
+	};
+	// step 4 animation script end
+	// step 5 animation script start
+	function step5() {
+		$("#svgContainer").removeClass();
+		$("#svgContainer").addClass('slide5');
+		var animItem = bodymovin.loadAnimation({
+			wrapper: svgContainer,
+			animType: 'svg',
+			loop: false,
+			path: 'step5/data.json',
+		});
+		animItem.addEventListener('complete', function() {
+			setTimeout(function(){
+				animItem.destroy();
+			}, 4000);
+		})
+	};
+	// step 5 animation script end
+	// step 6 animation script start
+	function step6() {
+		$("#svgContainer").removeClass();
+		$("#svgContainer").addClass('slide6');
+		var animItem = bodymovin.loadAnimation({
+			wrapper: svgContainer,
+			animType: 'svg',
+			loop: false,
+			path: 'step6/data.json',
+		});
+		animItem.addEventListener('complete', function() {
+			setTimeout(function(){
+				window.location.href = 'https://www.waste2water.com/closed-loop-wash-racks/';
+			}, 1000);
+		})
+	};
+	// step 6 animation script end
+</script>
 </body>
 </html>
