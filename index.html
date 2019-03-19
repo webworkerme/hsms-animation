@@ -4,180 +4,207 @@
 	<title>Animation</title>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
 	<style>
-	@-webkit-keyframes pulse {
-		from {
-			-webkit-transform: scale3d(1, 1, 1);
-			transform: scale3d(1, 1, 1);
+		@-webkit-keyframes pulse {
+			from {
+				-webkit-transform: scale3d(1, 1, 1);
+				transform: scale3d(1, 1, 1);
+			}
+			50% {
+				-webkit-transform: scale3d(1.05, 1.05, 1.05);
+				transform: scale3d(1.05, 1.05, 1.05);
+			}
+			to {
+				-webkit-transform: scale3d(1, 1, 1);
+				transform: scale3d(1, 1, 1);
+			}
 		}
-		50% {
-			-webkit-transform: scale3d(1.05, 1.05, 1.05);
-			transform: scale3d(1.05, 1.05, 1.05);
+		@keyframes pulse {
+			from {
+				-webkit-transform: scale3d(1, 1, 1);
+				transform: scale3d(1, 1, 1);
+			}
+			50% {
+				-webkit-transform: scale3d(1.05, 1.05, 1.05);
+				transform: scale3d(1.05, 1.05, 1.05);
+			}
+			to {
+				-webkit-transform: scale3d(1, 1, 1);
+				transform: scale3d(1, 1, 1);
+			}
 		}
-		to {
-			-webkit-transform: scale3d(1, 1, 1);
-			transform: scale3d(1, 1, 1);
+		.choose-animation-blk {
+			text-align: center;
+			font-family: 'Open Sans', sans-serif;
+			overflow: hidden;
 		}
-	}
-	@keyframes pulse {
-		from {
-			-webkit-transform: scale3d(1, 1, 1);
-			transform: scale3d(1, 1, 1);
+		.animation-title {
+			font-size: 36px;
+			background-color: #1E9EFF;
+			margin: 0;
+			padding: 15px;
+			color: #fff;
+			letter-spacing: 1px;
 		}
-		50% {
-			-webkit-transform: scale3d(1.05, 1.05, 1.05);
-			transform: scale3d(1.05, 1.05, 1.05);
+		.choose-animation-blk img{
+			max-width: 100%;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
 		}
-		to {
-			-webkit-transform: scale3d(1, 1, 1);
-			transform: scale3d(1, 1, 1);
+		.animation-img-blk {
+			position: relative;
 		}
-	}
-	.choose-animation-blk {
-		text-align: center;
-		font-family: 'Open Sans', sans-serif;
-		overflow: hidden;
-	}
-	.animation-title {
-		font-size: 36px;
-		background-color: #1E9EFF;
-		margin: 0;
-		padding: 15px;
-		color: #fff;
-		letter-spacing: 1px;
-	}
-	.choose-animation-blk img{
-		max-width: 100%;
-		-webkit-transition: 0.3s;
-		-o-transition: 0.3s;
-		transition: 0.3s;
-	}
-	.animation-img-blk {
-		position: relative;
-	}
-	.step-1, .step-2, .step-3, .step-4, .step-5, .step-6{
-		display: inline-block;
-		background-color: #fff;
-		width: 4%;
-		min-width: 4%;
-		padding-top: 4%;
-		position: absolute;
-		border-radius: 500px;
-		-webkit-transition: 0.3s;
-		-o-transition: 0.3s;
-		transition: 0.3s;
-		cursor: pointer;
-	}
-	.step-1:before, .step-2:before, .step-3:before, .step-4:before, .step-5:before, .step-6:before{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translateX(-50%) translateY(-50%);
-		-ms-transform: translateX(-50%) translateY(-50%);
-		transform: translateX(-50%) translateY(-50%);
-		color: #f00;
-		font-size: 2vw;
-		font-weight: 600;
-	}
-	.step-1:hover, .step-2:hover, .step-3:hover, .step-4:hover, .step-5:hover, .step-6:hover{
-		-webkit-animation-name: pulse;
-		animation-name: pulse;
-		-webkit-animation-iteration-count: infinite;
-		animation-iteration-count: infinite;
-		-webkit-animation-duration: 0.8s;
-		animation-duration: 0.8s;
-		-webkit-animation-timing-function: ease-in-out;
-		animation-timing-function: ease-in-out;
-	}
-	.step-1{
-		top: 42%;
-		right: 27%;
-	}
-	.step-1:before{
-		content: "1";
-	}
-	.step-2{
-		top: 58%;
-		left: 29%;
-	}
-	.step-2:before{
-		content: "2";
-	}
-	.step-3{
-		top: 58%;
-		left: 14%;
-	}
-	.step-3:before{
-		content: "3";
-	}
-	.step-4{
-		top: 40%;
-		left: 28%;
-	}
-	.step-4:before{
-		content: "4";
-	}
-	.step-5{
-		top: 32%;
-		left: 41%;
-	}
-	.step-5:before{
-		content: "5";
-	}
-	.step-6{
-		top: 19%;
-		left: 58%;
-	}
-	.step-6:before{
-		content: "6";
-	}
-	#svgContainer{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
-		-webkit-transition: 0.3s;
-		-o-transition: 0.3s;
-		transition: 0.3s;
-	}
-	#svgContainer svg{
-		position: relative;
-		z-index: 999;
-		-webkit-transition: 0.3s;
-		-o-transition: 0.3s;
-		transition: 0.3s;
-	}
-	.animation-footer{
-		padding: 15px;
-		background-color: #1E9EFF;
-	}
-	.more-info-btn {
-		display: inline-block;
-		text-decoration: none;
-		background-color: #F6FF00;
-		padding: 10px 30px;
-		font-weight: 600;
-		letter-spacing: 1px;
-		font-size: 36px;
-		color: #000;
-		margin: 10px 0px;
-	}
-	.slide1 svg g g:last-child{
-		display: block !important;
-		opacity: 1;
-	}
-	.slide2 svg g g:nth-child(9) image{
-		height: auto;
-	}
-	.slide4 svg g g:nth-child(6){
-		display: block !important;
-		opacity: 1;
-		-webkit-transform: matrix(1, 0, 0, 1, 116, 58.5);
-		-ms-transform: matrix(1, 0, 0, 1, 116, 58.5);
-		transform: matrix(1, 0, 0, 1, 116, 58.5);
-	}
-</style>
+		.step-1, .step-2, .step-3, .step-4, .step-5, .step-6{
+			display: inline-block;
+			background-color: #fff;
+			width: 4%;
+			min-width: 4%;
+			padding-top: 4%;
+			position: absolute;
+			border-radius: 500px;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+			cursor: pointer;
+		}
+		.step-1:before, .step-2:before, .step-3:before, .step-4:before, .step-5:before, .step-6:before{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			-ms-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			color: #f00;
+			font-size: 2vw;
+			font-weight: 600;
+		}
+		.step-1:hover, .step-2:hover, .step-3:hover, .step-4:hover, .step-5:hover, .step-6:hover{
+			-webkit-animation-name: pulse;
+			animation-name: pulse;
+			-webkit-animation-iteration-count: infinite;
+			animation-iteration-count: infinite;
+			-webkit-animation-duration: 0.8s;
+			animation-duration: 0.8s;
+			-webkit-animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;
+		}
+		.step-1{
+			top: 42%;
+			right: 27%;
+		}
+		.step-1:before{
+			content: "1";
+		}
+		.step-2{
+			top: 58%;
+			left: 29%;
+		}
+		.step-2:before{
+			content: "2";
+		}
+		.step-3{
+			top: 58%;
+			left: 14%;
+		}
+		.step-3:before{
+			content: "3";
+		}
+		.step-4{
+			top: 40%;
+			left: 28%;
+		}
+		.step-4:before{
+			content: "4";
+		}
+		.step-5{
+			top: 32%;
+			left: 41%;
+		}
+		.step-5:before{
+			content: "5";
+		}
+		.step-6{
+			top: 19%;
+			left: 58%;
+		}
+		.step-6:before{
+			content: "6";
+		}
+		#svgContainer{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+		}
+		#svgContainer svg{
+			position: relative;
+			z-index: 999;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+		}
+		.animation-footer{
+			padding: 15px;
+			background-color: #1E9EFF;
+		}
+		.more-info-btn {
+			display: inline-block;
+			text-decoration: none;
+			background-color: #F6FF00;
+			padding: 10px 30px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			font-size: 36px;
+			color: #000;
+			margin: 10px 0px;
+		}
+		.slide1 svg g g:last-child{
+			display: block !important;
+			opacity: 1;
+		}
+		.slide2 svg g g:nth-child(9) image{
+			height: auto;
+		}
+		.slide4 svg g g:nth-child(6){
+			display: block !important;
+			opacity: 1;
+			-webkit-transform: matrix(1, 0, 0, 1, 116, 58.5);
+			-ms-transform: matrix(1, 0, 0, 1, 116, 58.5);
+			transform: matrix(1, 0, 0, 1, 116, 58.5);
+		}
+		#step-1-video, #step-2-video, #step-3-video, #step-4-video{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			display: none;
+		}
+		#step-1-video iframe, #step-2-video iframe, #step-3-video iframe, #step-4-video iframe{
+			width: 100%;
+			height: 100%;
+		}
+		.btn-primary{
+			position: absolute;
+			top: 15px;
+			left: 15px;
+			display: inline-block;
+			color: #000;
+			background-color: #F6FF00;
+			border-color: #F6FF00;
+			padding: 12px 20px;
+			font-size: 16px;
+			border-radius: 4px;
+			font-weight: 600;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
 	<div class="choose-animation-blk">
@@ -188,6 +215,22 @@
 		<!-- Animation block title end -->
 		<div class="animation-img-blk">
 			<div id="svgContainer"></div>
+			<div id="step-1-video">
+				<div id="player1" class="player"></div>
+				<button class="btn btn-primary" onclick="goBack()">Go Back</button>
+			</div>
+			<div id="step-2-video">
+				<div id="player2" class="player"></div>
+				<button class="btn btn-primary" onclick="goBack()">Go Back</button>
+			</div>
+			<div id="step-3-video">
+				<div id="player3" class="player"></div>
+				<button class="btn btn-primary" onclick="goBack()">Go Back</button>
+			</div>
+			<div id="step-4-video">
+				<div id="player4" class="player"></div>
+				<button class="btn btn-primary" onclick="goBack()">Go Back</button>
+			</div>
 			<img src="images/animation_image.jpg" usemap="#image-map">
 			<span class="step-1" onclick="step1()" title="Step 1"></span>
 			<span class="step-2" onclick="step2()" title="Step 2"></span>
@@ -203,6 +246,50 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="js/lottie.min.js"></script>
 	<script>
+		// Add Youtube iframe after animation complete JS start
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		var playerDivs = document.querySelectorAll(".player"); // get .player nodes
+		var playerDivsArr = [].slice.call(playerDivs); // nodelist to array to use forEach();
+		var players = new Array(playerDivsArr.length); // gets the yt-player objects
+		videoArray=['D203vextPqc','uiWo7h2NZ00','w4CzdSbtqrQ','fhr18HnTaHY'];
+		// Youtube frame start
+		function onYouTubeIframeAPIReady() {
+			playerDivsArr.forEach(function(e, i) {
+				players[i] = new YT.Player(e.id, {
+					videoId: videoArray[i],
+					events: {
+						'onReady': onPlayerReady,
+						'onStateChange': onPlayerStateChange
+					}
+				})
+			})
+		}
+		function onPlayerReady(event) {
+			event.target.pauseVideo();
+			console.log(event.target);
+		}
+		function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.ENDED) {
+				event.target.seekTo(0);
+				event.target.stopVideo();
+				goBack();
+			}
+		}
+		function stopVideo(){
+			$('#step-1-video iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+			$('#step-2-video iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+			$('#step-3-video iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+			$('#step-4-video iframe')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+		};
+		function goBack(){
+			$("#step-1-video, #step-2-video, #step-3-video, #step-4-video").hide();
+			stopVideo();
+		};
+		// Youtube frame end
+		// Add Youtube iframe after animation complete JS End
 		var svgContainer = document.getElementById('svgContainer');
 	// step 1 animation script start
 	function step1() {
@@ -217,6 +304,7 @@
 		animItem.addEventListener('complete', function() {
 			setTimeout(function(){
 				animItem.destroy();
+				$("#step-1-video").show();
 			}, 4000);
 		});
 	};
@@ -234,6 +322,7 @@
 		animItem.addEventListener('complete', function() {
 			setTimeout(function(){
 				animItem.destroy();
+				$("#step-2-video").show();
 			}, 4000);
 		});
 	};
@@ -251,6 +340,7 @@
 		animItem.addEventListener('complete', function() {
 			setTimeout(function(){
 				animItem.destroy();
+				$("#step-3-video").show();
 			}, 1000);
 		});
 	};
@@ -268,6 +358,7 @@
 		animItem.addEventListener('complete', function() {
 			setTimeout(function(){
 				animItem.destroy();
+				$("#step-4-video").show();
 			}, 4000);
 		})
 	};
