@@ -185,6 +185,7 @@
 			height: 100%;
 			z-index: 1;
 			display: none;
+			background-color: #fff;
 		}
 		#step-1-video iframe, #step-2-video iframe, #step-3-video iframe, #step-4-video iframe{
 			width: 100%;
@@ -254,7 +255,7 @@
 		var playerDivs = document.querySelectorAll(".player"); // get .player nodes
 		var playerDivsArr = [].slice.call(playerDivs); // nodelist to array to use forEach();
 		var players = new Array(playerDivsArr.length); // gets the yt-player objects
-		videoArray=['D203vextPqc','uiWo7h2NZ00','w4CzdSbtqrQ','fhr18HnTaHY'];
+		videoArray=['D203vextPqc','pItd2x4oyu0','w4CzdSbtqrQ','fhr18HnTaHY'];
 		// Youtube frame start
 		function onYouTubeIframeAPIReady() {
 			playerDivsArr.forEach(function(e, i) {
@@ -305,7 +306,7 @@
 			setTimeout(function(){
 				animItem.destroy();
 				$("#step-1-video").show();
-			}, 4000);
+			}, 2000);
 		});
 	};
 	// step 1 animation script end
@@ -323,7 +324,7 @@
 			setTimeout(function(){
 				animItem.destroy();
 				$("#step-2-video").show();
-			}, 4000);
+			}, 2000);
 		});
 	};
 	// step 2 animation script end
@@ -341,7 +342,7 @@
 			setTimeout(function(){
 				animItem.destroy();
 				$("#step-3-video").show();
-			}, 1000);
+			}, 0);
 		});
 	};
 	// step 3 animation script end
@@ -359,7 +360,7 @@
 			setTimeout(function(){
 				animItem.destroy();
 				$("#step-4-video").show();
-			}, 4000);
+			}, 2000);
 		})
 	};
 	// step 4 animation script end
@@ -376,7 +377,7 @@
 		animItem.addEventListener('complete', function() {
 			setTimeout(function(){
 				animItem.destroy();
-			}, 4000);
+			}, 2000);
 		})
 	};
 	// step 5 animation script end
@@ -392,8 +393,8 @@
 		});
 		animItem.addEventListener('complete', function() {
 			setTimeout(function(){
-				window.location.href = 'https://www.waste2water.com/closed-loop-wash-racks/';
-			}, 1000);
+				animItem.destroy();
+			}, 2000);
 		})
 	};
 	// step 6 animation script end
